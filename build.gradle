@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "0.1"
-group= "com.github.trianglecube36.betterchunks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "io.github.trianglecube36.betterchunks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "betterchunks"
 
 minecraft {
@@ -66,5 +66,12 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'io.github.trianglecube36.betterchunks.CorePlugin'
+        attributes 'FMLCorePluginContainsFMLMod': 'I think so'
     }
 }
